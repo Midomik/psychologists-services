@@ -1,14 +1,16 @@
 // import { Route, Routes } from 'react-router-dom';
 
-function App() {
+import { Router } from 'routes';
+
+export const App = () => {
   return (
-    <div>Ping Pong !!!</div>
+    <>
+      <Router />
+    </>
     // <SharedLayout>
     //   <Routes>
     //     {/* <Route index path="/" element={<WelcomePage />} /> */}
     //   </Routes>
     // </SharedLayout>
   );
-}
-
-export default App;
+};

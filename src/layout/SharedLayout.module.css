@@ -1,0 +1,132 @@
+header {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+  padding: 38px 0;
+}
+
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #fc832c;
+}
+
+.logo > *:nth-child(2) {
+  font-weight: 500;
+}
+.logo > *:nth-child(3) {
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.pages_container {
+  display: flex;
+  gap: 40px;
+  /* order: 3; */
+}
+
+.nav_link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--black-color);
+  position: relative;
+}
+
+:global(.active)::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--orange-color);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.auth_container {
+  display: flex;
+  gap: 8px;
+  /* order: 2; */
+}
+
+.auth_btn {
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 39px;
+  background-color: var(--white-color);
+  height: 48px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--black-color);
+}
+
+.auth_container > *:nth-child(2) {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border-color: transparent;
+}
+
+.visually_hidden {
+  visibility: hidden;
+}
+.avatar_container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.icon_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--orange-color);
+}
+
+.user_title {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.burger_menu_container {
+  display: none;
+}
+
+@media screen and (max-width: 670px) {
+  .visually_hidden {
+    display: none;
+  }
+}
+@media screen and (max-width: 850px) {
+  /* .logo {
+    flex-basis: 100%;
+  } */
+
+  .auth_container {
+    display: none;
+  }
+
+  .burger_menu_container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .pages_container {
+    display: none;
+  }
+}
