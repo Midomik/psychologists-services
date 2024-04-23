@@ -39,19 +39,23 @@
 
 body {
   background-color: var(--white-color);
+  /* background-image: url('./assets/ellipse.png'); */
+
   background-size: auto 100%;
-  background-position: center center;
+
+  background-position: right bottom;
   background-repeat: no-repeat;
   font-family: Inter, sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   color: var(--black-color);
   width: 100%;
   margin: 0;
+  min-height: 100vh;
 }
 h1,
 h2,
@@ -82,5 +86,9 @@ button {
   max-width: 1184px;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
+}
+
+.add-background {
+  background-image: url('./assets/ellipse.png');
 }

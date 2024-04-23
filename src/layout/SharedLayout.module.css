@@ -1,9 +1,18 @@
 header {
+}
+
+.dsdds {
+  /* background-image: url('../assets/ellipse.png');*/
+  /* min-height: 100vh; */
+}
+
+.header_container {
   display: flex;
   align-items: center;
 
   justify-content: space-between;
-  padding: 38px 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .logo {
@@ -56,6 +65,9 @@ header {
 }
 
 .auth_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(25, 26, 21, 0.2);
   border-radius: 30px;
   padding: 14px 39px;
@@ -101,6 +113,12 @@ header {
 
 .burger_menu_container {
   display: none;
+}
+
+.line {
+  height: 1px;
+  background-color: rgba(25, 26, 21, 0.1);
+  width: 100%;
 }
 
 @media screen and (max-width: 670px) {

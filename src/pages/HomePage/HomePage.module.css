@@ -1,0 +1,140 @@
+.home_page_container {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 20px;
+  align-items: center;
+  margin-top: 78px;
+  padding-bottom: 100px;
+}
+
+.campaign_container {
+}
+
+.main_title {
+  max-width: 600px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: calc(24px + (80 - 24) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.025;
+  letter-spacing: -0.02em;
+  color: var(--black-color);
+}
+.part_of_title {
+  font-style: italic;
+  color: var(--orange-color);
+}
+
+.description {
+  max-width: 510px;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: var(--black-color);
+}
+
+.get_started_link_container {
+  border-radius: 30px;
+  max-width: calc(180px + (235 - 180) * ((100vw - 320px) / (1440 - 320)));
+  background-color: var(--orange-color);
+  color: var(--white-color);
+}
+
+.get_started_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  padding: 18px 50px;
+}
+
+.image_container {
+  position: relative;
+  overflow: visible;
+}
+
+.image {
+  width: calc(280px + (464 - 280) * ((100vw - 320px) / (1440 - 320)));
+  border-radius: 10px;
+}
+
+.question_mark_container {
+  position: absolute;
+  top: 180px;
+  left: calc(-10px + (-34 - (-10)) * ((100vw - 320px) / (1440 - 320)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #54be96;
+  transform: rotate(-15deg);
+}
+
+.people_container {
+  top: 50px;
+  right: calc(-10px + (-26 - (-10)) * ((100vw - 320px) / (1440 - 320)));
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #fbc75e;
+  transform: rotate(15deg);
+}
+
+.experiance_container {
+  position: absolute;
+  left: calc(130px + (-100 - 130) * ((100vw - 320px) / (1440 - 320)));
+  bottom: 74px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  border-radius: 20px;
+  background-color: var(--orange-color);
+  /* width: calc(200px + (311 - 200) * ((100vw - 320px) / (1440 - 320)));
+  height: calc(80px + (118 - 80) * ((100vw - 320px) / (1440 - 320))); */
+  padding: calc(8px + (40 - 8) * ((100vw - 320px) / (1440 - 320)));
+  color: var(--white-color);
+}
+
+.check_mark_container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  background-color: var(--white-color);
+  width: calc(30px + (54 - 30) * ((100vw - 320px) / (1440 - 320)));
+  height: calc(30px + (54 - 30) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.experiance_title_number_container {
+}
+
+.experiance_title {
+  color: rgba(251, 251, 251, 0.5);
+  margin-bottom: 8px;
+  font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.expireance_number {
+  font-weight: 700;
+  font-size: 24px;
+  font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1440 - 320)));
+}
+
+@media screen and (max-width: 1037px) {
+  /* .home_page_container {
+    flex-direction: column;
+    align-items: center;
+  } */
+}
