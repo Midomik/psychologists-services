@@ -26,7 +26,6 @@ header {
 .pages_container {
   display: flex;
   gap: 40px;
-  /* order: 3; */
 }
 
 .nav_link {
@@ -54,7 +53,6 @@ header {
 .auth_container {
   display: flex;
   gap: 8px;
-  /* order: 2; */
 }
 
 .auth_btn {

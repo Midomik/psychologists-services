@@ -1,4 +1,4 @@
-import { BackgroundRoundIcon } from 'assets/sprite';
+// import { BackgroundRoundIcon } from 'assets/sprite';
 
 export const HomePage = () => {
   return (
