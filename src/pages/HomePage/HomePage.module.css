@@ -43,9 +43,14 @@
 .get_started_link {
   display: flex;
   justify-content: center;
+  gap: 18px;
   align-items: center;
   color: var(--white-color);
-  padding: 18px 50px;
+  padding: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)))
+    calc(30px + (50 - 30) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.arrow_icon_container {
 }
 
 .image_container {
@@ -74,7 +79,7 @@
 
 .people_container {
   top: 50px;
-  right: calc(-10px + (-26 - (-10)) * ((100vw - 320px) / (1440 - 320)));
+  right: calc(-10px + (-20 - (-10)) * ((100vw - 320px) / (1440 - 320)));
   position: absolute;
   display: flex;
   align-items: center;
@@ -137,6 +142,9 @@
   .get_started_link_container {
     width: 235px;
   }
+  .get_started_link {
+    padding: 18px 50px;
+  }
   .image {
     width: 464px;
   }
@@ -144,20 +152,20 @@
     left: -34px;
   }
   .people_container {
-    right: -26px;
+    right: -20px;
   }
   .experiance_container {
     left: -100px;
     padding: 40px;
   }
   .check_mark_container {
-      width: 54px;
-      height: 54px;
-    }
-    .experiance_title{
-      font-size: 14px;
-    }
-    .expireance_number{
-       font-size: 24px;
-    }
+    width: 54px;
+    height: 54px;
+  }
+  .experiance_title {
+    font-size: 14px;
+  }
+  .expireance_number {
+    font-size: 24px;
+  }
 }

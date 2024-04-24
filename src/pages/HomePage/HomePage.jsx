@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import css from './HomePage.module.css';
 import image from '../../assets/home-image.png';
-import { CheckMarkIcon, PeopleIcon, QuestionMarkIcon } from 'assets/sprite';
+import {
+  ArrowIcon,
+  CheckMarkIcon,
+  PeopleIcon,
+  QuestionMarkIcon,
+} from 'assets/sprite';
 
 export const HomePage = () => {
   return (
@@ -19,6 +24,9 @@ export const HomePage = () => {
         <div className={css.get_started_link_container}>
           <Link className={css.get_started_link} to="psychologists">
             Get Started
+            <div className={css.arrow_icon_container}>
+              <ArrowIcon />
+            </div>
           </Link>
         </div>
       </div>

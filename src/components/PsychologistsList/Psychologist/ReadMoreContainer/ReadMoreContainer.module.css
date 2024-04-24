@@ -1,0 +1,72 @@
+.more_data_container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 24px;
+}
+
+.avatar_name_rating_container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.avatar_letter {
+  font-size: 20px;
+  box-sizing: border-box;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(252, 131, 44, 0.2);
+  border-radius: 100%;
+  color: var(--orange-color);
+}
+
+.name {
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+}
+
+.star_rating_container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.rating {
+  font-size: 14px;
+  line-height: 1.28571;
+}
+
+.descr {
+  font-weight: 400;
+
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+}
+
+.make_an_appointment_btn {
+  align-self: flex-start;
+  font-weight: 500;
+
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--white-color);
+  padding: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)))
+    calc(18px + (32 - 18) * ((100vw - 320px) / (1440 - 320)));
+  background-color: var(--orange-color);
+  border: none;
+  border-radius: 30px;
+  margin-top: 15px;
+}
+@media screen and (min-width: 1440px) {
+  .name {
+    font-size: 16px;
+  }
+  .make_an_appointment_btn {
+    padding: 14px 32px;
+  }
+}

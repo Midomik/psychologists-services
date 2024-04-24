@@ -1,5 +1,9 @@
 // import { configureStore } from '@reduxjs/toolkit';
 
+import { configureStore } from '@reduxjs/toolkit';
+import { filtersReducer } from './filters/filters.reducer';
+import { psychologistsReducer } from './psychologists/psychologists.reducer';
+
 // import {
 //   persistStore,
 //   persistReducer,
@@ -19,16 +23,17 @@
 //   whitelist: ['exampleFiled'],
 // };
 
-// export const store = configureStore({
-//   reducer: {
-
-//   },
-//   middleware: getDefaultMiddleware =>
-//     getDefaultMiddleware({
-//       serializableCheck: {
-//         ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//       },
-//     }),
-// });
+export const store = configureStore({
+  reducer: {
+    filters: filtersReducer,
+    psychologists: psychologistsReducer,
+  },
+  //   middleware: getDefaultMiddleware =>
+  //     getDefaultMiddleware({
+  //       serializableCheck: {
+  //         ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  //       },
+  //     }),
+});
 
 // export const persistor = persistStore(store);
