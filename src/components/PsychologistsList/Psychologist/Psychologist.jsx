@@ -10,6 +10,7 @@ import { useState } from 'react';
 
 import { ReadMoreContainer } from './ReadMoreContainer/ReadMoreContainer';
 
+
 export const Psychologist = ({ data }) => {
   const {
     name,
@@ -71,7 +72,7 @@ export const Psychologist = ({ data }) => {
         <div className={css.rating_container}>
           <div className={css.rating_price_per_hour_container}>
             <p className={css.rating}>
-              <StarIcon /> Rating:{rating}
+              <StarIcon /> Rating: {rating}
             </p>
             <VerticalLineIcon />
             <p className={css.price_per_hour}>
@@ -90,7 +91,9 @@ export const Psychologist = ({ data }) => {
             Read more
           </button>
         )}
-        {isReadMore && <ReadMoreContainer reviews={reviews} />}
+        {isReadMore && (
+          <ReadMoreContainer data={{ avatar_url, name }} reviews={reviews} />
+        )}
       </div>
     </li>
   );

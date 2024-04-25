@@ -11,7 +11,7 @@ import { customStyles } from './selectStyles';
 // import { selectTotalCars } from '../../redux/cars/cars.selectors';
 // import options from '../../data/filter';
 import { useSelector } from 'react-redux';
-import { selectOptions } from '../../redux/filters/filters.selectors';
+import { selectFilterOptions } from '../../redux/filters/filters.selectors';
 
 const Filter = () => {
   //   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Filter = () => {
   //   const rentalPrices = useSelector(selectRentalPrices);
   //   const cars = useSelector(selectTotalCars);
   //   const [modelChoice, setModelChoice] = useState('');
-  const options = useSelector(selectOptions);
+  const options = useSelector(selectFilterOptions);
 
   const [value, setValue] = useState(options[0]);
 
