@@ -20,6 +20,7 @@ export const Router = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
+
         {/* </PersistGate> */}
       </Provider>
     </BrowserRouter>

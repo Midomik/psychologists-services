@@ -2,10 +2,27 @@ import React, { useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import css from './SharedLayout.module.css';
 import { BurgerMenuIcon, UserIcon } from 'assets/sprite';
+import {
+  setOpenSignInModal,
+  setOpenSignUpModal,
+} from '../redux/modal/modal.reducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { SignUpModal } from 'components/SignUpModal/SignUpModal';
+import {
+  selectIsOpenBookingModal,
+  selectIsOpenSignInModal,
+  selectIsOpenSignUpModal,
+} from '../redux/modal/modal.selectors';
+import { BookingModal } from 'components/BookingModal/BookingModal';
+import { SignInModal } from 'components/SignInModal/SignInModal';
 
 export const SharedLayout = () => {
   const location = useLocation();
   const body = document.body;
+  const dispatch = useDispatch();
+  const isOpenSignInModal = useSelector(selectIsOpenSignInModal);
+  const isOpenSignUpModal = useSelector(selectIsOpenSignUpModal);
+  const isOpneBookingModal = useSelector(selectIsOpenBookingModal);
 
   useEffect(() => {
     location.pathname === '/'
@@ -40,8 +57,18 @@ export const SharedLayout = () => {
           </div>
 
           <div className={css.auth_container}>
-            <button className={css.auth_btn}>LogIn</button>
-            <button className={css.auth_btn}>Registration</button>
+            <button
+              onClick={() => dispatch(setOpenSignInModal())}
+              className={css.auth_btn}
+            >
+              LogIn
+            </button>
+            <button
+              onClick={() => dispatch(setOpenSignUpModal())}
+              className={css.auth_btn}
+            >
+              Registration
+            </button>
           </div>
 
           {false && (
@@ -61,6 +88,9 @@ export const SharedLayout = () => {
       </header>
       <main>
         <Outlet />
+        {isOpenSignUpModal && <SignUpModal />}
+        {isOpenSignInModal && <SignInModal />}
+        {isOpneBookingModal && <BookingModal />}
       </main>
     </>
   );

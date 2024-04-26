@@ -1,0 +1,165 @@
+.modal_owerlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(18, 20, 23, 0.5);
+}
+
+.modal {
+  max-width: calc(320px + (566 - 320) * ((100vw - 320px) / (1440 - 320)));
+  width: 100%;
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: calc(28px + (64 - 28) * ((100vw - 320px) / (1440 - 320)));
+  box-sizing: border-box;
+}
+
+.close_btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background-color: transparent;
+}
+.sign_up_title {
+  font-weight: 500;
+  font-size: calc(28px + (40 - 28) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: calc(10px + (20 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.sign_up_descr {
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.sign_up_form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(12px + (18 - 12) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.name_field,
+.email_field,
+.password_field {
+  /* display: flex;
+    align-items: center; */
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(30px + (52 - 30) * ((100vw - 320px) / (1440 - 320)));
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.name_field::placeholder,
+.email_field::placeholder,
+.password_field::placeholder {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  color: var(--black-color);
+}
+
+.eye_container {
+  position: absolute;
+  top: calc(8px + (16 - 8) * ((100vw - 320px) / (1440 - 320)));
+  right: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
+}
+.name_label {
+  position: relative;
+}
+
+.name_field {
+}
+
+.email_label {
+  position: relative;
+}
+
+.email_field {
+}
+
+.password_label {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.password_field {
+}
+
+.submit_form_btn {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  border-radius: 30px;
+  padding: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320))) 0;
+  color: var(--white-color);
+  background-color: var(--orange-color);
+  border: none;
+}
+
+.error_title {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  color: red;
+  font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+/* ################################## */
+
+@media screen and (min-width: 1440px) {
+  .modal {
+    max-width: 566px;
+    padding: 64px;
+  }
+  .sign_up_title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .sign_up_descr {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .sign_up_form {
+    gap: 16px;
+  }
+  .name_field,
+  .email_field,
+  .password_field {
+    font-size: 16px;
+    height: 52px;
+  }
+  .name_field::placeholder,
+  .email_field::placeholder .password_field::placeholder {
+    font-size: 16px;
+  }
+
+  .submit_form_btn {
+    font-size: 16px;
+    padding: 16px 0;
+  }
+  .error_title {
+    font-size: 14px;
+  }
+}

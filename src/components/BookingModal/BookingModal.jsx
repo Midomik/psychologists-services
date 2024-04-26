@@ -1,4 +1,4 @@
-import React, { useEffect,  } from 'react';
+import React, { useEffect } from 'react';
 import css from './BookingModal.module.css';
 import { ClockIcon, CloseIcon } from 'assets/sprite';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ export const BookingModal = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
     control,
   } = useForm({
     defaultValues: { phone: '+380' },
@@ -95,16 +95,30 @@ export const BookingModal = () => {
               className={css.name_field}
               placeholder="Name"
               type="text"
+              style={{
+                borderColor: errors.name ? 'red' : 'rgba(25, 26, 21, 0.1)',
+              }}
               {...register('name')}
             />
+            {errors.name && (
+              <p className={css.error_title}>{errors.name.message}</p>
+            )}
           </label>
 
           <div className={css.phone_meeting_time_label}>
-            <input
-              className={css.phone_field}
-              type="text"
-              {...register('phone')}
-            />
+            <div className={css.phone_label}>
+              <input
+                className={css.phone_field}
+                type="text"
+                style={{
+                  borderColor: errors.phone ? 'red' : 'rgba(25, 26, 21, 0.1)',
+                }}
+                {...register('phone')}
+              />
+              {errors.phone && (
+                <p className={css.error_title}>{errors.phone.message}</p>
+              )}
+            </div>
 
             <Controller
               name="time"
@@ -127,8 +141,14 @@ export const BookingModal = () => {
               placeholder="Email"
               className={css.email_field}
               type="text"
+              style={{
+                borderColor: errors.email ? 'red' : 'rgba(25, 26, 21, 0.1)',
+              }}
               {...register('email')}
             />
+            {errors.email && (
+              <p className={css.error_title}>{errors.email.message}</p>
+            )}
           </label>
 
           <label className={css.comment_label}>

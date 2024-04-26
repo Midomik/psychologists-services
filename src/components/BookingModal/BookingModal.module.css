@@ -79,9 +79,6 @@
   gap: calc(10px + (16 - 10) * ((100vw - 320px) / (1440 - 320)));
 }
 
-.name_label {
-}
-
 .name_field,
 .meeting_time_field,
 .phone_field,
@@ -118,14 +115,23 @@
   gap: 8px;
 }
 
+.phone_label {
+  position: relative;
+  width: 100%;
+}
+
 .phone_field {
-  width: 50%;
+  width: 100%;
+}
+
+.name_label {
+  position: relative;
 }
 
 .meeting_time_field {
 }
-
 .email_label {
+  position: relative;
 }
 
 .email_field {
@@ -151,6 +157,14 @@
   color: var(--white-color);
   background-color: var(--orange-color);
   border: none;
+}
+
+.error_title {
+  position: absolute;
+  bottom: calc(-12px + (-16 - (-12) _) * ((100vw - 320px) / (1440 - 320)));
+  left: 0;
+  color: red;
+  font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
 }
 
 /* ################################## */
@@ -187,6 +201,9 @@
   min-height: calc(
     30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))
   ) !important;
+}
+:global(.css-aompdj-container) {
+  width: 100% !important;
 }
 /* ################################## */
 
@@ -277,5 +294,9 @@
   :global(.css-1friywm-control) {
     height: 52px;
     min-height: 52px;
+  }
+  .error_title {
+    bottom: -16px;
+    font-size: 14px;
   }
 }
