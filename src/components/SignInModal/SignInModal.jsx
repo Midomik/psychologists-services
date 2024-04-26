@@ -6,6 +6,9 @@ import { setCloseModal } from '../../redux/modal/modal.reducer';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signInModalSchema } from 'utils/modalSchemes';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+import { addToUsersThunk } from '../../redux/auth/auth.operations';
 
 export const SignInModal = () => {
   const dispatch = useDispatch();
@@ -35,9 +38,15 @@ export const SignInModal = () => {
       closeModal();
     }
   };
-  const handlerSubmit = data => {
+  const handlerSubmit = async data => {
+    // const userCredential = await signInWithEmailAndPassword(
+    //   auth,
+    //   data.email,
+    //   data.password
+    // );
+
     reset({ name: '', email: '', password: '' });
-    console.log(data);
+    // console.log('user was succesfully logined: ', userCredential);
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);

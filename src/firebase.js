@@ -1,9 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAXbzIGZkGygiozdeWSfxed3PsJ9Dlav70',
   authDomain: 'psychologists-services-b7d3e.firebaseapp.com',
+  databaseURL:
+    'https://psychologists-services-b7d3e-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'psychologists-services-b7d3e',
   storageBucket: 'psychologists-services-b7d3e.appspot.com',
   messagingSenderId: '90710879013',
@@ -11,5 +14,11 @@ const firebaseConfig = {
   measurementId: 'G-JLDMNBY2MY',
 };
 
+// export const app = initializeApp(firebaseConfig);
+
+// firebase.initializeApp(firebaseConfig);
+// export const dataRef = firebase.database();
+// export default firebase;
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const db = getDatabase();
+export const auth = getAuth(app);

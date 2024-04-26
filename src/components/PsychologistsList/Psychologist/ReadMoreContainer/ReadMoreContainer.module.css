@@ -50,8 +50,9 @@
 
 .make_an_appointment_btn {
   align-self: flex-start;
+  font-family: 'Inter';
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1440 - 320)));
   font-weight: 500;
-
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: var(--white-color);
@@ -68,5 +69,6 @@
   }
   .make_an_appointment_btn {
     padding: 14px 32px;
+    font-size: 16px;
   }
 }

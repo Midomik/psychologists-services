@@ -6,6 +6,9 @@ import { setCloseModal } from '../../redux/modal/modal.reducer';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpModalSchema } from 'utils/modalSchemes';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { addToUsersThunk } from '../../redux/auth/auth.operations';
 
 export const SignUpModal = () => {
   const dispatch = useDispatch();
@@ -35,9 +38,16 @@ export const SignUpModal = () => {
       closeModal();
     }
   };
-  const handlerSubmit = data => {
+  const handlerSubmit = async data => {
+    const { name, email, password } = data;
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    dispatch(addToUsersThunk({ name, email, uid: user.uid }));
     reset({ name: '', email: '', password: '' });
-    console.log(data);
+    console.log('user was succesfully registered: ', data.name);
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);
