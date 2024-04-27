@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   doctors: null,
+  favorite: null,
   isLoading: false,
   error: null,
 };

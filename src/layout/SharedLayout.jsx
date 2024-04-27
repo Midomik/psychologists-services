@@ -1,5 +1,11 @@
-import React, { useEffect } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import css from './SharedLayout.module.css';
 import { BurgerMenuIcon, UserIcon } from 'assets/sprite';
 import {
@@ -15,14 +21,49 @@ import {
 } from '../redux/modal/modal.selectors';
 import { BookingModal } from 'components/BookingModal/BookingModal';
 import { SignInModal } from 'components/SignInModal/SignInModal';
+import { auth } from '../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { userSignOut } from '../redux/auth/auth.operations';
+
+import { isAuth } from '../redux/auth/auth.reducer';
 
 export const SharedLayout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const body = document.body;
   const dispatch = useDispatch();
   const isOpenSignInModal = useSelector(selectIsOpenSignInModal);
   const isOpenSignUpModal = useSelector(selectIsOpenSignUpModal);
   const isOpneBookingModal = useSelector(selectIsOpenBookingModal);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser(user);
+        dispatch(isAuth(true));
+      } else {
+        setUser(user);
+        dispatch(isAuth(false));
+      }
+    });
+    return () => listen();
+    //eslint-disable-next-line
+  }, []);
+
+  // useEffect(() => {
+  //   const auth = getAuth();
+  //   setUser(auth.currentUser);
+  // }, []);
+  const handlerSignOut = () => {
+    if (location.pathname === '/favorites') {
+      navigate('/psychologists');
+      dispatch(userSignOut());
+    } else {
+      dispatch(userSignOut());
+    }
+  };
 
   useEffect(() => {
     location.pathname === '/'
@@ -30,6 +71,7 @@ export const SharedLayout = () => {
       : body.classList.remove('add-background');
   }, [location.pathname, body]);
 
+  // console.log(isUserAuth);
   return (
     <>
       <header>
@@ -48,35 +90,42 @@ export const SharedLayout = () => {
               Psychologists
             </NavLink>
 
-            <NavLink
-              className={`${css.nav_link} ${false && css.visually_hidden}`}
-              to="favorites"
-            >
-              Favorites
-            </NavLink>
+            {user && (
+              <NavLink
+                className={`${css.nav_link} ${false && css.visually_hidden}`}
+                to="favorites"
+              >
+                Favorites
+              </NavLink>
+            )}
           </div>
 
-          <div className={css.auth_container}>
-            <button
-              onClick={() => dispatch(setOpenSignInModal())}
-              className={css.auth_btn}
-            >
-              LogIn
-            </button>
-            <button
-              onClick={() => dispatch(setOpenSignUpModal())}
-              className={css.auth_btn}
-            >
-              Registration
-            </button>
-          </div>
+          {!user && (
+            <div className={css.auth_container}>
+              <button
+                onClick={() => dispatch(setOpenSignInModal())}
+                className={css.auth_btn}
+              >
+                LogIn
+              </button>
+              <button
+                onClick={() => dispatch(setOpenSignUpModal())}
+                className={css.auth_btn}
+              >
+                Registration
+              </button>
+            </div>
+          )}
 
-          {false && (
+          {user && (
             <div className={css.avatar_container}>
               <div className={css.icon_container}>
                 <UserIcon />
               </div>
-              <p className={css.user_title}>{'User'}</p>
+              <p className={css.user_title}>{user && user.displayName}</p>
+              <button onClick={() => handlerSignOut()} className={css.auth_btn}>
+                Log out
+              </button>
             </div>
           )}
 

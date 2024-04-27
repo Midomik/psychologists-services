@@ -8,6 +8,8 @@
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
   max-width: calc(320px + (566 - 320) * ((100vw - 320px) / (1440 - 320)));
   width: 100%;
   min-height: 300px;
@@ -126,6 +128,16 @@
   font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
 }
 
+.sign_up_btn {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
 /* ################################## */
 
 @media screen and (min-width: 1440px) {
@@ -159,7 +171,12 @@
     font-size: 16px;
     padding: 16px 0;
   }
+
   .error_title {
+    font-size: 14px;
+  }
+
+  .sign_up_btn {
     font-size: 14px;
   }
 }

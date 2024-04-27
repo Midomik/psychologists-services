@@ -1,1 +1,2 @@
-// export const selectDoctors = state => state.psychologists.doctors;
+export const selectUserName = state => state.auth.userData;
+export const selectIsAuth = state => state.auth.authenticated;

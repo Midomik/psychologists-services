@@ -9,10 +9,21 @@ import {
 import { useState } from 'react';
 
 import { ReadMoreContainer } from './ReadMoreContainer/ReadMoreContainer';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../../redux/psychologists/psychologists.operations';
+import { getAuth } from 'firebase/auth';
+import { selectIsAuth } from '../../../redux/auth/auth.selectors';
+import { setOpenSignInModal } from '../../../redux/modal/modal.reducer';
 
 export const Psychologist = ({ data }) => {
+  const auth = getAuth();
+  const userId = auth.currentUser?.uid;
+  const dispatch = useDispatch();
   const {
+    uid,
     name,
     avatar_url,
     experience,
@@ -23,8 +34,21 @@ export const Psychologist = ({ data }) => {
     specialization,
     initial_consultation,
     about,
+    favoritedBy,
   } = data;
   const [isReadMore, setIsReadMore] = useState(false);
+  const isFavorite = Object.keys(favoritedBy)?.includes(userId);
+  const isAuth = useSelector(selectIsAuth);
+
+  const favoriteHandler = () => {
+    if (isAuth) {
+      isFavorite
+        ? dispatch(removeFromFavorites({ userId, uid }))
+        : dispatch(addToFavorites({ userId, uid }));
+    } else {
+      dispatch(setOpenSignInModal());
+    }
+  };
 
   return (
     <li className={css.psychologist_container}>
@@ -80,7 +104,12 @@ export const Psychologist = ({ data }) => {
               <span className={css.rating_span}>{price_per_hour}</span>
             </p>
           </div>
-          <FavoriteIcon isFavorite={false} />
+          <div
+            onClick={() => favoriteHandler()}
+            className={css.favorite_container}
+          >
+            <FavoriteIcon isFavorite={isFavorite} />
+          </div>
         </div>
 
         {!isReadMore && (

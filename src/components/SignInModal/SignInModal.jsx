@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import css from './SignInModal.module.css';
 import { CloseIcon, EyeOffIcon, EyeOnIcon } from 'assets/sprite';
 import { useDispatch } from 'react-redux';
-import { setCloseModal } from '../../redux/modal/modal.reducer';
+import {
+  setCloseModal,
+  setOpenSignUpModal,
+} from '../../redux/modal/modal.reducer';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signInModalSchema } from 'utils/modalSchemes';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-
-import { addToUsersThunk } from '../../redux/auth/auth.operations';
+import { auth } from '../../firebase';
+import { saveData } from '../../redux/auth/auth.reducer';
 
 export const SignInModal = () => {
   const dispatch = useDispatch();
@@ -39,14 +42,16 @@ export const SignInModal = () => {
     }
   };
   const handlerSubmit = async data => {
-    // const userCredential = await signInWithEmailAndPassword(
-    //   auth,
-    //   data.email,
-    //   data.password
-    // );
-
+    const { user } = await signInWithEmailAndPassword(
+      auth,
+      data.email,
+      data.password
+    );
+    console.log();
+    dispatch(saveData({ email: data.email, name: user.displayName }));
     reset({ name: '', email: '', password: '' });
     // console.log('user was succesfully logined: ', userCredential);
+    closeModal();
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);
@@ -118,6 +123,15 @@ export const SignInModal = () => {
             Log In
           </button>
         </form>
+        <button
+          className={css.sign_up_btn}
+          onClick={() => {
+            closeModal();
+            dispatch(setOpenSignUpModal());
+          }}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );

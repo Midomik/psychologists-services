@@ -11,19 +11,23 @@ import {
   startAfter,
   limitToFirst,
 } from 'firebase/database';
+import { useSelector } from 'react-redux';
+import { selectIsAuth } from '../../redux/auth/auth.selectors';
 
 export const PsychologistsPage = () => {
   const [data, setData] = useState([]);
   const [lastKey, setLastKey] = useState(null);
   const [isAll, setIsAll] = useState(false);
+  const isAuth = useSelector(selectIsAuth);
 
   useEffect(() => {
     loadData();
-  }, []);
+    // eslint-disable-next-line
+  }, [isAuth]);
 
   const loadData = async () => {
     try {
-      const dbRef = ref(db);
+      const dbRef = ref(db, 'doctors/');
 
       let qr;
       if (lastKey) {

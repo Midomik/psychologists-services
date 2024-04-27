@@ -1,22 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { doctors } from '../../data/psychologists';
+
 import { addToUsersThunk } from './auth.operations';
 
 const initialState = {
-  userData: { name: '', email: '', avatarURL: '', id: '' },
+  userData: null,
+  authenticated: null,
   isLoading: false,
   error: null,
-  authenticated: false,
-  token: null,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    saveData: (state, { payload }) => {
+      state.userData = payload;
+    },
+    isAuth: (state, { payload }) => {
+      state.authenticated = payload;
+    },
+  },
   extraReducers: builder =>
-    builder.addCase(addToUsersThunk.fulfilled, (state, action) => {
-      state.authenticated = true;
+    builder.addCase(addToUsersThunk.fulfilled, (state, { payload }) => {
+      state.userData = payload;
     }),
   // .addCase(getIngredients.fulfilled, (state, action) => {
   //   state.ingredients = action.payload;
@@ -52,4 +58,5 @@ const authSlice = createSlice({
   // ),
 });
 
-export const psychologistsReducer = authSlice.reducer;
+export const authReducer = authSlice.reducer;
+export const { saveData, isAuth } = authSlice.actions;

@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { filtersReducer } from './filters/filters.reducer';
 import { psychologistsReducer } from './psychologists/psychologists.reducer';
 import { modalReducer } from './modal/modal.reducer';
+import { authReducer } from './auth/auth.reducer';
 
 // import {
 //   persistStore,
@@ -29,7 +30,9 @@ export const store = configureStore({
     filters: filtersReducer,
     psychologists: psychologistsReducer,
     modal: modalReducer,
+    auth: authReducer,
   },
+
   //   middleware: getDefaultMiddleware =>
   //     getDefaultMiddleware({
   //       serializableCheck: {

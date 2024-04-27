@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import css from './SignUpModal.module.css';
 import { CloseIcon, EyeOffIcon, EyeOnIcon } from 'assets/sprite';
 import { useDispatch } from 'react-redux';
-import { setCloseModal } from '../../redux/modal/modal.reducer';
+import {
+  setCloseModal,
+  setOpenSignInModal,
+} from '../../redux/modal/modal.reducer';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpModalSchema } from 'utils/modalSchemes';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { addToUsersThunk } from '../../redux/auth/auth.operations';
 
@@ -45,9 +48,18 @@ export const SignUpModal = () => {
       email,
       password
     );
-    dispatch(addToUsersThunk({ name, email, uid: user.uid }));
+    await updateProfile(user, { displayName: name });
+    dispatch(
+      addToUsersThunk({
+        name,
+        email,
+        uid: user.uid,
+        favorites: ['placeholder'],
+      })
+    );
     reset({ name: '', email: '', password: '' });
     console.log('user was succesfully registered: ', data.name);
+    closeModal();
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);
@@ -136,6 +148,15 @@ export const SignUpModal = () => {
             Sign Up
           </button>
         </form>
+        <button
+          className={css.sign_in_btn}
+          onClick={() => {
+            closeModal();
+            dispatch(setOpenSignInModal());
+          }}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );
