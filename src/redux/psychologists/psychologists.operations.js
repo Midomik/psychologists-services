@@ -13,8 +13,6 @@ export const addToFavorites = createAsyncThunk(
 
     try {
       await set(favoritesRef, true);
-
-      console.log('Doctor added to favorites successfully!');
     } catch (error) {
       console.error('Error adding doctor to favorites:', error);
     }
@@ -24,7 +22,6 @@ export const addToFavorites = createAsyncThunk(
 export const removeFromFavorites = createAsyncThunk(
   'psychologists/remove-from-favorites',
   async (data, thunkApi) => {
-    console.log(data);
     const favoritesRef = ref(
       db,
       `doctors/${data.uid}/favoritedBy/${data.userId}`
@@ -32,8 +29,6 @@ export const removeFromFavorites = createAsyncThunk(
 
     try {
       await remove(favoritesRef);
-
-      console.log('Doctor added to favorites successfully!');
     } catch (error) {
       console.error('Error adding doctor to favorites:', error);
     }

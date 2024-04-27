@@ -46,7 +46,7 @@ export const BookingModal = () => {
     }
   };
   const handlerSubmit = data => {
-    console.log(data);
+    
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);

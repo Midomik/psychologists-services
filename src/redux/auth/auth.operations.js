@@ -9,13 +9,11 @@ export const addToUsersThunk = createAsyncThunk(
   'auth/add-data',
   async (formData, thunkApi) => {
     try {
-      console.log(formData);
       dataP.map(item => {
         const id = nanoid();
         return set(ref(db, 'doctors/' + id), { ...item, uid: id });
       });
       set(ref(db, 'users/' + formData.uid), formData);
-      console.log('succses');
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +25,7 @@ export const userSignOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await signOut(auth);
-      console.log('User signed out successfully');
+      
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +37,7 @@ export const getUserData = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await signOut(auth);
-      console.log('User signed out successfully');
+      
     } catch (error) {
       console.log(error);
     }

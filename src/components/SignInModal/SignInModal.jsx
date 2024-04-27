@@ -47,7 +47,7 @@ export const SignInModal = () => {
       data.email,
       data.password
     );
-    console.log();
+    
     dispatch(saveData({ email: data.email, name: user.displayName }));
     reset({ name: '', email: '', password: '' });
     closeModal();

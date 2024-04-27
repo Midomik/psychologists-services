@@ -39,7 +39,6 @@ export const FavoritesPage = () => {
       });
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
     }
   };
 
@@ -60,7 +59,6 @@ export const FavoritesPage = () => {
     }
     //eslint-disable-next-line
   }, [doctors, userId, page]);
-  console.log(isAll);
 
   useEffect(() => {
     loadData();

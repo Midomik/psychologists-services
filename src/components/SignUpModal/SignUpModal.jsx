@@ -58,7 +58,7 @@ export const SignUpModal = () => {
       })
     );
     reset({ name: '', email: '', password: '' });
-    console.log('user was succesfully registered: ', data.name);
+    
     closeModal();
   };
   useEffect(() => {
