@@ -1,5 +1,4 @@
 .home_page_container {
-  /* min-height: 100vh; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -103,8 +102,6 @@
   font-weight: 400;
   border-radius: 20px;
   background-color: var(--orange-color);
-  /* width: calc(200px + (311 - 200) * ((100vw - 320px) / (1440 - 320)));
-  height: calc(80px + (118 - 80) * ((100vw - 320px) / (1440 - 320))); */
   padding: calc(8px + (40 - 8) * ((100vw - 320px) / (1440 - 320)));
   color: var(--white-color);
 }

@@ -52,10 +52,7 @@ export const SharedLayout = () => {
     //eslint-disable-next-line
   }, []);
 
-  // useEffect(() => {
-  //   const auth = getAuth();
-  //   setUser(auth.currentUser);
-  // }, []);
+
   const handlerSignOut = () => {
     if (location.pathname === '/favorites') {
       navigate('/psychologists');
@@ -71,7 +68,7 @@ export const SharedLayout = () => {
       : body.classList.remove('add-background');
   }, [location.pathname, body]);
 
-  // console.log(isUserAuth);
+
   return (
     <>
       <header>
@@ -135,6 +132,7 @@ export const SharedLayout = () => {
         </div>
         <div className={css.line}></div>
       </header>
+
       <main>
         <Outlet />
         {isOpenSignUpModal && <SignUpModal />}

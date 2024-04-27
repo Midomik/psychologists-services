@@ -55,8 +55,7 @@
 .name_field,
 .email_field,
 .password_field {
-  /* display: flex;
-      align-items: center; */
+ 
   font-family: 'Inter';
   font-weight: 400;
   font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));

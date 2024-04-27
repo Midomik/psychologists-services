@@ -128,7 +128,7 @@ export const BookingModal = () => {
                   {...field}
                   defaultValue={{ label: '00 : 00', value: '00:00' }}
                   options={options}
-                  // menuIsOpen
+                  
                   styles={formStyles}
                   components={{ DropdownIndicator: timeIcon, Menu: Heading }}
                 />

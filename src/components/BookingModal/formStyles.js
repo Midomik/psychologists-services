@@ -23,8 +23,6 @@ export const formStyles = {
   container: base => ({ ...base, width: '50%' }),
   control: base => ({
     ...base,
-    // height: 52,
-    // minHeight: 52,
     borderRadius: 12,
     backgroundColor: 'white',
     paddingRight: 18,
@@ -32,9 +30,6 @@ export const formStyles = {
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
-    // transition: 'all .2s ease',
-    // transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
-    // color: '#191A15',
   }),
   menuList: base => ({
     ...base,
@@ -44,10 +39,7 @@ export const formStyles = {
     '::-webkit-scrollbar-thumb': {
       display: 'none',
     },
-    // '::-webkit-scrollbar-track': {
-    //   marginTop: 14,
-    //   marginBottom: 14,
-    // },
+
     '::-webkit-scrollbar-thumb:hover': {
       display: 'none',
     },

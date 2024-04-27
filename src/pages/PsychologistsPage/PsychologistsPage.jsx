@@ -13,12 +13,14 @@ import {
 } from 'firebase/database';
 import { useSelector } from 'react-redux';
 import { selectIsAuth } from '../../redux/auth/auth.selectors';
+import { Loader } from 'components/Loader/Loader';
 
 export const PsychologistsPage = () => {
   const [data, setData] = useState([]);
   const [lastKey, setLastKey] = useState(null);
   const [isAll, setIsAll] = useState(false);
   const isAuth = useSelector(selectIsAuth);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     loadData();
@@ -27,6 +29,7 @@ export const PsychologistsPage = () => {
 
   const loadData = async () => {
     try {
+      setIsLoading(true);
       const dbRef = ref(db, 'doctors/');
 
       let qr;
@@ -53,15 +56,18 @@ export const PsychologistsPage = () => {
           setIsAll(true);
         }
       });
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
   return (
     <div className={`container ${css.psychologists_container}`}>
-      <Filter />
+      {isLoading && <Loader />}
+      {data.length !== 0 && <Filter />}
       {data.length > 0 && <PsychologistsList doctors={data} />}
-      {!isAll && (
+      {!isAll && data.length !== 0 && (
         <button onClick={() => loadData()} className={css.load_more_btn}>
           Load more
         </button>

@@ -50,7 +50,6 @@ export const SignInModal = () => {
     console.log();
     dispatch(saveData({ email: data.email, name: user.displayName }));
     reset({ name: '', email: '', password: '' });
-    // console.log('user was succesfully logined: ', userCredential);
     closeModal();
   };
   useEffect(() => {

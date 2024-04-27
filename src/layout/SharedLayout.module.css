@@ -1,11 +1,6 @@
 header {
 }
 
-.dsdds {
-  /* background-image: url('../assets/ellipse.png');*/
-  /* min-height: 100vh; */
-}
-
 .header_container {
   display: flex;
   align-items: center;
@@ -128,10 +123,6 @@ header {
   }
 }
 @media screen and (max-width: 850px) {
-  /* .logo {
-    flex-basis: 100%;
-  } */
-
   .auth_container {
     display: none;
   }

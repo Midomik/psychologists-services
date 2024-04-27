@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { onValue, orderByKey, query, ref } from 'firebase/database';
 import { db } from '../../firebase';
+import { Loader } from 'components/Loader/Loader';
 
 export const FavoritesPage = () => {
   const auth = getAuth();
@@ -14,12 +15,13 @@ export const FavoritesPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-
   const [isAll, setIsAll] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const perPage = 4;
 
   const loadData = async () => {
     try {
+      setIsLoading(true);
       const dbRef = ref(db, 'doctors/');
       const qr = query(dbRef, orderByKey());
 
@@ -33,8 +35,10 @@ export const FavoritesPage = () => {
         });
 
         setDoctors(newData);
+        setIsLoading(false);
       });
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -63,6 +67,7 @@ export const FavoritesPage = () => {
   }, []);
   return (
     <div className={`container ${css.favorites_container}`}>
+      {isLoading && <Loader />}
       <Filter />
       {true && <PsychologistsList doctors={data} />}
       {!isAll && (

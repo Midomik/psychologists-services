@@ -45,13 +45,3 @@ export const getUserData = createAsyncThunk(
     }
   }
 );
-
-// export const isAuth = createAsyncThunk(
-//   'auth/is-auth',
-//   async (formData, thunkApi) => {
-//     try {
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// );

@@ -11,7 +11,6 @@ export const Router = () => {
   return (
     <BrowserRouter basename="/psychologists-services">
       <Provider store={store}>
-        {/* <PersistGate persistor={persistor}> */}
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<HomePage />} />
@@ -20,8 +19,6 @@ export const Router = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-
-        {/* </PersistGate> */}
       </Provider>
     </BrowserRouter>
   );
