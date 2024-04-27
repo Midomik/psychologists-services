@@ -161,7 +161,7 @@
 
 .error_title {
   position: absolute;
-  bottom: calc(-12px + (-16 - (-12) _) * ((100vw - 320px) / (1440 - 320)));
+  bottom: calc(-12px + (-16 - (-12)) * ((100vw - 320px) / (1440 - 320)));
   left: 0;
   color: red;
   font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
