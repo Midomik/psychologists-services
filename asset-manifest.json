@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/psychologists-services/static/css/main.cbe523a0.css",
-    "main.js": "/psychologists-services/static/js/main.42ae548c.js",
-    "static/media/image3x.png": "/psychologists-services/static/media/image3x.914179426be4e5cba885.png",
-    "static/media/image2x.png": "/psychologists-services/static/media/image2x.fec15fa870b1fb22cb6b.png",
-    "static/media/ellipse.png": "/psychologists-services/static/media/ellipse.d4f7768135875ab550a5.png",
-    "static/media/home-image.png": "/psychologists-services/static/media/home-image.418c2fe37d1cf3d596b5.png",
-    "static/media/Inter-Bold.ttf": "/psychologists-services/static/media/Inter-Bold.0eaf807b1cf0eceabe0f.ttf",
-    "static/media/Inter-SemiBold.ttf": "/psychologists-services/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
-    "static/media/Inter-Medium.ttf": "/psychologists-services/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
-    "static/media/Inter-Regular.ttf": "/psychologists-services/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
-    "static/media/image3xWebp.webp": "/psychologists-services/static/media/image3xWebp.b3919686359f898a2c7a.webp",
-    "static/media/image2xWebp.webp": "/psychologists-services/static/media/image2xWebp.49cc2035c18675661899.webp",
-    "static/media/imageWebp.webp": "/psychologists-services/static/media/imageWebp.8a5ac5d521b0c60e4857.webp",
-    "index.html": "/psychologists-services/index.html",
-    "main.cbe523a0.css.map": "/psychologists-services/static/css/main.cbe523a0.css.map",
-    "main.42ae548c.js.map": "/psychologists-services/static/js/main.42ae548c.js.map"
+    "main.css": "/static/css/main.64ce1559.css",
+    "main.js": "/static/js/main.6f4948e3.js",
+    "static/media/image3x.png": "/static/media/image3x.914179426be4e5cba885.png",
+    "static/media/image2x.png": "/static/media/image2x.fec15fa870b1fb22cb6b.png",
+    "static/media/ellipse.png": "/static/media/ellipse.d4f7768135875ab550a5.png",
+    "static/media/home-image.png": "/static/media/home-image.418c2fe37d1cf3d596b5.png",
+    "static/media/Inter-Bold.ttf": "/static/media/Inter-Bold.0eaf807b1cf0eceabe0f.ttf",
+    "static/media/Inter-SemiBold.ttf": "/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
+    "static/media/Inter-Medium.ttf": "/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
+    "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
+    "static/media/image3xWebp.webp": "/static/media/image3xWebp.b3919686359f898a2c7a.webp",
+    "static/media/image2xWebp.webp": "/static/media/image2xWebp.49cc2035c18675661899.webp",
+    "static/media/imageWebp.webp": "/static/media/imageWebp.8a5ac5d521b0c60e4857.webp",
+    "index.html": "/index.html",
+    "main.64ce1559.css.map": "/static/css/main.64ce1559.css.map",
+    "main.6f4948e3.js.map": "/static/js/main.6f4948e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbe523a0.css",
-    "static/js/main.42ae548c.js"
+    "static/css/main.64ce1559.css",
+    "static/js/main.6f4948e3.js"
   ]
 }
