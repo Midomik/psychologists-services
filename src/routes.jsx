@@ -9,7 +9,7 @@ import { store } from './redux/store';
 
 export const Router = () => {
   return (
-    <BrowserRouter basename="/psychologists-services">
+    <BrowserRouter>
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
