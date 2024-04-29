@@ -7,20 +7,17 @@ import {
   VerticalLineIcon,
 } from 'assets/sprite';
 import { useState } from 'react';
-
 import { ReadMoreContainer } from './ReadMoreContainer/ReadMoreContainer';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectIsAuth } from '../../../redux/auth/auth.selectors';
+import { setOpenSignInModal } from '../../../redux/modal/modal.reducer';
 import {
   addToFavorites,
   removeFromFavorites,
-} from '../../../redux/psychologists/psychologists.operations';
-import { getAuth } from 'firebase/auth';
-import { selectIsAuth } from '../../../redux/auth/auth.selectors';
-import { setOpenSignInModal } from '../../../redux/modal/modal.reducer';
+} from '../../../redux/psychologists/psychologists.reducer';
+import { selectFavorites } from '../../../redux/psychologists/psychologists.selectors';
 
 export const Psychologist = ({ data }) => {
-  const auth = getAuth();
-  const userId = auth.currentUser?.uid;
   const dispatch = useDispatch();
   const {
     uid,
@@ -34,17 +31,18 @@ export const Psychologist = ({ data }) => {
     specialization,
     initial_consultation,
     about,
-    favoritedBy,
   } = data;
   const [isReadMore, setIsReadMore] = useState(false);
-  const isFavorite = Object.keys(favoritedBy)?.includes(userId);
   const isAuth = useSelector(selectIsAuth);
+
+  const favoriteCard = useSelector(selectFavorites);
+  const isFavorite = favoriteCard.some(favorite => favorite.uid === uid);
 
   const favoriteHandler = () => {
     if (isAuth) {
       isFavorite
-        ? dispatch(removeFromFavorites({ userId, uid }))
-        : dispatch(addToFavorites({ userId, uid }));
+        ? dispatch(removeFromFavorites(uid))
+        : dispatch(addToFavorites(data));
     } else {
       dispatch(setOpenSignInModal());
     }

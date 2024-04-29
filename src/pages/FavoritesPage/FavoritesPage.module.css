@@ -1,5 +1,13 @@
 .favorites_container {
   padding-bottom: calc(50px + (100 - 50) * ((100vw - 320px) / (1440 - 320)));
+  margin-top: 32px;
+}
+
+.no_favoritees {
+  text-align: center;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .load_more_btn {
@@ -17,11 +25,18 @@
   color: var(--white-color);
   background-color: var(--orange-color);
   border-radius: 30px;
+  transition: all 0.3s ease;
+}
+.load_more_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
 }
 
 @media screen and (min-width: 1440px) {
   .favorites_container {
     padding-bottom: 100px;
+  }
+  .no_favoritees {
+    font-size: 20px;
   }
   .load_more_btn {
     margin-top: 64px;

@@ -1,4 +1,3 @@
-import Filter from 'components/Filter/Filter';
 import css from './PsychologistsPage.module.css';
 import { PsychologistsList } from 'components/PsychologistsList/PsychologistsList';
 import { useEffect, useState } from 'react';
@@ -59,13 +58,11 @@ export const PsychologistsPage = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
     }
   };
   return (
     <div className={`container ${css.psychologists_container}`}>
       {isLoading && <Loader />}
-      {data.length !== 0 && <Filter />}
       {data.length > 0 && <PsychologistsList doctors={data} />}
       {!isAll && data.length !== 0 && (
         <button onClick={() => loadData()} className={css.load_more_btn}>

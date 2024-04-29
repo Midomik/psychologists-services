@@ -47,6 +47,10 @@
   color: var(--white-color);
   padding: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)))
     calc(30px + (50 - 30) * ((100vw - 320px) / (1440 - 320)));
+  transition: all 0.3s ease;
+}
+.get_started_link:hover {
+  color: rgba(25, 26, 21, 0.3);
 }
 
 .arrow_icon_container {

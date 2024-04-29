@@ -9,6 +9,7 @@ import {
 import css from './SharedLayout.module.css';
 import { BurgerMenuIcon, UserIcon } from 'assets/sprite';
 import {
+  setOpenMenuModal,
   setOpenSignInModal,
   setOpenSignUpModal,
 } from '../redux/modal/modal.reducer';
@@ -16,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SignUpModal } from 'components/SignUpModal/SignUpModal';
 import {
   selectIsOpenBookingModal,
+  selectIsOpenMenuModal,
   selectIsOpenSignInModal,
   selectIsOpenSignUpModal,
 } from '../redux/modal/modal.selectors';
@@ -25,7 +27,8 @@ import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { userSignOut } from '../redux/auth/auth.operations';
 
-import { isAuth } from '../redux/auth/auth.reducer';
+import { isAuth, saveData } from '../redux/auth/auth.reducer';
+import { MenuModal } from 'components/MenuModal/MenuModal';
 
 export const SharedLayout = () => {
   const location = useLocation();
@@ -35,6 +38,7 @@ export const SharedLayout = () => {
   const isOpenSignInModal = useSelector(selectIsOpenSignInModal);
   const isOpenSignUpModal = useSelector(selectIsOpenSignUpModal);
   const isOpneBookingModal = useSelector(selectIsOpenBookingModal);
+  const isOpneMenugModal = useSelector(selectIsOpenMenuModal);
 
   const [user, setUser] = useState(null);
 
@@ -43,6 +47,7 @@ export const SharedLayout = () => {
       if (user) {
         setUser(user);
         dispatch(isAuth(true));
+        dispatch(saveData({ name: user.displayName }));
       } else {
         setUser(user);
         dispatch(isAuth(false));
@@ -52,13 +57,14 @@ export const SharedLayout = () => {
     //eslint-disable-next-line
   }, []);
 
-
   const handlerSignOut = () => {
     if (location.pathname === '/favorites') {
       navigate('/psychologists');
+      dispatch(saveData({ email: null, name: null }));
       dispatch(userSignOut());
     } else {
       dispatch(userSignOut());
+      dispatch(saveData({ email: null, name: null }));
     }
   };
 
@@ -67,7 +73,6 @@ export const SharedLayout = () => {
       ? body.classList.add('add-background')
       : body.classList.remove('add-background');
   }, [location.pathname, body]);
-
 
   return (
     <>
@@ -126,7 +131,10 @@ export const SharedLayout = () => {
             </div>
           )}
 
-          <div className={css.burger_menu_container}>
+          <div
+            onClick={() => dispatch(setOpenMenuModal())}
+            className={css.burger_menu_container}
+          >
             <BurgerMenuIcon />
           </div>
         </div>
@@ -138,6 +146,7 @@ export const SharedLayout = () => {
         {isOpenSignUpModal && <SignUpModal />}
         {isOpenSignInModal && <SignInModal />}
         {isOpneBookingModal && <BookingModal />}
+        {isOpneMenugModal && <MenuModal />}
       </main>
     </>
   );

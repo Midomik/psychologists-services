@@ -4,7 +4,6 @@
   --orange-color: #fc832c;
   --white-orange-color: rgba(252, 131, 44, 0.2);
 }
-@import url(./components/Filter/Filter.css);
 
 @font-face {
   font-family: 'Inter';
@@ -100,4 +99,7 @@ button {
 
 .add-overflov {
   overflow: hidden;
+}
+#react-select-2-input {
+  cursor: pointer !important;
 }

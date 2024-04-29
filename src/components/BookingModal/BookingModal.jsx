@@ -45,9 +45,7 @@ export const BookingModal = () => {
       closeModal();
     }
   };
-  const handlerSubmit = data => {
-    
-  };
+  const handlerSubmit = data => {};
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);
     return () => {
@@ -128,7 +126,6 @@ export const BookingModal = () => {
                   {...field}
                   defaultValue={{ label: '00 : 00', value: '00:00' }}
                   options={options}
-                  
                   styles={formStyles}
                   components={{ DropdownIndicator: timeIcon, Menu: Heading }}
                 />

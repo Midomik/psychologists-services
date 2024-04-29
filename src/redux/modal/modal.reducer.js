@@ -7,6 +7,7 @@ const initialState = {
   isOpenSignInModal: false,
   isOpenSignUpModal: false,
   isOpenBookingModal: false,
+  isOpenMenuModal: false,
   modalData: null,
   error: null,
   isLoading: false,
@@ -28,10 +29,15 @@ const modalSlice = createSlice({
       state.isOpenBookingModal = true;
       document.body.classList.add('add-overflov');
     },
+    setOpenMenuModal: (state, { payload }) => {
+      state.isOpenMenuModal = true;
+      document.body.classList.add('add-overflov');
+    },
     setCloseModal: (state, { payload }) => {
       state.isOpenSignInModal = false;
       state.isOpenSignUpModal = false;
       state.isOpenBookingModal = false;
+      state.isOpenMenuModal = false;
       state.modalData = null;
     },
     setModalData: (state, { payload }) => {
@@ -45,6 +51,7 @@ export const {
   setOpenSignInModal,
   setOpenSignUpModal,
   setOpenBookingModal,
+  setOpenMenuModal,
   setCloseModal,
   setModalData,
 } = modalSlice.actions;

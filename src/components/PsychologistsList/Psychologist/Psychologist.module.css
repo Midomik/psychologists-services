@@ -96,6 +96,10 @@
   text-decoration-skip-ink: none;
   color: #191a15;
   align-self: flex-start;
+  transition: all 0.3s ease;
+}
+.read_more_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
 }
 
 .rating_container {
@@ -121,6 +125,16 @@
 
 .rating_span {
   color: #38cd3e;
+}
+
+.favorite_container {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.favorite_container:hover {
+  background-color: rgba(25, 26, 21, 0.3);
 }
 
 @media screen and (min-width: 1440px) {

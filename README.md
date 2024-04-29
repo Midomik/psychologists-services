@@ -1,4 +1,4 @@
-# LearnLingo - professional language training
+# Psychologists Services - Online therapy platform
 
 (https://github.com/Midomik/psychologists-services)
 

@@ -12,6 +12,8 @@ import { signUpModalSchema } from 'utils/modalSchemes';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { addToUsersThunk } from '../../redux/auth/auth.operations';
+import { saveData } from '../../redux/auth/auth.reducer';
+import { Notify } from 'notiflix';
 
 export const SignUpModal = () => {
   const dispatch = useDispatch();
@@ -42,24 +44,31 @@ export const SignUpModal = () => {
     }
   };
   const handlerSubmit = async data => {
-    const { name, email, password } = data;
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    await updateProfile(user, { displayName: name });
-    dispatch(
-      addToUsersThunk({
-        name,
+    try {
+      const { name, email, password } = data;
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
         email,
-        uid: user.uid,
-        favorites: ['placeholder'],
-      })
-    );
-    reset({ name: '', email: '', password: '' });
-    
-    closeModal();
+        password
+      );
+      await updateProfile(user, { displayName: name });
+      dispatch(
+        addToUsersThunk({
+          name,
+          email,
+          uid: user.uid,
+          favorites: ['placeholder'],
+        })
+      );
+      dispatch(saveData({ email, name }));
+      reset({ name: '', email: '', password: '' });
+      closeModal();
+      Notify.success('You are successfully registered');
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        Notify.failure('An account with this email already exists');
+      }
+    }
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);
@@ -155,7 +164,7 @@ export const SignUpModal = () => {
             dispatch(setOpenSignInModal());
           }}
         >
-          Sign Up
+          Sign In
         </button>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { signInModalSchema } from 'utils/modalSchemes';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { saveData } from '../../redux/auth/auth.reducer';
+import { Notify } from 'notiflix';
 
 export const SignInModal = () => {
   const dispatch = useDispatch();
@@ -41,16 +42,24 @@ export const SignInModal = () => {
       closeModal();
     }
   };
+
   const handlerSubmit = async data => {
-    const { user } = await signInWithEmailAndPassword(
-      auth,
-      data.email,
-      data.password
-    );
-    
-    dispatch(saveData({ email: data.email, name: user.displayName }));
-    reset({ name: '', email: '', password: '' });
-    closeModal();
+    try {
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      dispatch(saveData({ email: data.email, name: user.displayName }));
+      reset({ name: '', email: '', password: '' });
+      closeModal();
+      Notify.success('You are successfully logged in');
+    } catch (error) {
+      if (error.code === 'auth/invalid-credential') {
+        Notify.failure('Password or email entered incorrectly');
+      }
+    }
   };
   useEffect(() => {
     window.addEventListener('keydown', closeModalFromEsc);

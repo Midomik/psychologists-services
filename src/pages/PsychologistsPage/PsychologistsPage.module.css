@@ -1,5 +1,6 @@
 .psychologists_container {
   padding-bottom: calc(50px + (100 - 50) * ((100vw - 320px) / (1440 - 320)));
+  margin-top: 32px;
 }
 
 .load_more_btn {
@@ -17,6 +18,10 @@
   color: var(--white-color);
   background-color: var(--orange-color);
   border-radius: 30px;
+  transition: all 0.3s ease;
+}
+.load_more_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
 }
 
 @media screen and (min-width: 1440px) {

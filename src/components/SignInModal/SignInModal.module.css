@@ -21,6 +21,12 @@
   transform: translate(-50%, -50%);
   padding: calc(28px + (64 - 28) * ((100vw - 320px) / (1440 - 320)));
   box-sizing: border-box;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.modal::-webkit-scrollbar {
+  width: 12px;
 }
 
 .close_btn {
@@ -55,7 +61,6 @@
 .name_field,
 .email_field,
 .password_field {
- 
   font-family: 'Inter';
   font-weight: 400;
   font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
@@ -66,6 +71,13 @@
   border: 1px solid rgba(25, 26, 21, 0.1);
   border-radius: 12px;
   padding: 16px 18px;
+  transition: all 0.3s ease;
+}
+
+.name_field:hover,
+.email_field:hover,
+.password_field:hover {
+  background-color: rgba(25, 26, 21, 0.3);
 }
 
 .name_field::placeholder,
@@ -117,6 +129,11 @@
   color: var(--white-color);
   background-color: var(--orange-color);
   border: none;
+  transition: all 0.3s ease;
+}
+
+.submit_form_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
 }
 
 .error_title {
@@ -135,8 +152,12 @@
   border: none;
   text-decoration: underline;
   margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
+.sign_up_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
+}
 /* ################################## */
 
 @media screen and (min-width: 1440px) {

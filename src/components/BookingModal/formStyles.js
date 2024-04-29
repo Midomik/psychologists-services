@@ -20,13 +20,17 @@ export const formStyles = {
     borderBottomRightRadius: 0,
     maxHeight: 'none',
   }),
-  container: base => ({ ...base, width: '50%' }),
+  container: base => ({
+    ...base,
+    width: '50%',
+  }),
   control: base => ({
     ...base,
     borderRadius: 12,
     backgroundColor: 'white',
     paddingRight: 18,
     border: '1px solid rgba(25, 26, 21, 0.1)',
+    '&:hover': { backgroundColor: 'rgba(25, 26, 21, 0.1)' },
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
