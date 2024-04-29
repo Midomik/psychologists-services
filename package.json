@@ -2,7 +2,6 @@
   "name": "psychologists-services",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Midomik.github.io/psychologists-services/",
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@reduxjs/toolkit": "^2.2.1",
